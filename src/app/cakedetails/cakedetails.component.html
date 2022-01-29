@@ -1,0 +1,55 @@
+<div>
+  <!-- the position of the parent container must be set to relative -->
+  <!-- It is really important to set loaderId for non-master loader -->
+  <ngx-ui-loader [loaderId]="'loader-01'"></ngx-ui-loader>
+</div>
+<div class="row" style="margin-top: 20px; ">
+
+    <div class="col-4 rounded">
+        <img [routerLink]="['/cake',cakes.cakeid]" class="card-img-top" [src]="cakes.image" />
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><h2>{{ cakes.name }}</h2></h5>
+          <p class="card-text border-top" style="margin-top:10px; padding-top: 10px;">
+              <strong>Price : </strong>{{ cakes.price }}</p>
+          <p class="card-text border-top" style="margin-top:10px; padding-top: 10px;">
+            <strong>Flavour : </strong> {{ cakes.type }}</p>
+          <p class="card-text border-top" style="margin-top:10px; padding-top: 10px;">
+              <strong>Description : </strong>{{ cakes.description }}</p>
+          <p class="card-text border-top" style="margin-top:10px; padding-top: 10px;">
+            <strong>Ingredients : </strong>{{ cakes.ingredients }}</p>
+          <p class="card-text border-top" style="margin-top:10px; padding-top: 10px;">
+            <strong>EggLess : </strong>{{ cakes.eggless }}</p>
+          <p class="card-text border-top" style="margin-top:10px; padding-top: 10px;">
+            <strong>Weight :</strong>{{ cakes.weight }}</p>
+          <p class="card-text border-top" style="margin-top:10px; padding-top: 10px;">
+            <strong>Ratings</strong> :{{ cakes.ratings }}</p>
+          <p class="card-text border-top" style="margin-top:10px; padding-top: 10px;">
+              <strong>Reviews :</strong>{{ cakes.reviews }}</p>
+          <p  class="card-text border-top" style="margin-top:10px; padding-top: 10px;">
+            <strong>Created At :</strong>{{ cakes.createdat }}</p>
+          <!-- <label *ngIf="cakes.category" class="alert alert-success">{{
+            cakes.category
+          }}</label> -->
+          <br />
+        </div>
+        <div class="row text-center " style="padding: 10px;">
+          <div class="col-md-6">
+          <button  (click)="addCakeToCart(cakes.cakeid)" class="btn btn-primary">Add to cart</button>
+
+          </div>
+          <div class="col-md-6">
+            <button routerLink="/checkout" class="btn btn-primary">Checkout</button>
+          </div>          
+        </div>
+      </div>
+
+  </div>
+  <div class="col-4 border rounded">
+    <img class="card-img-top " src="assets/images/cake-safety.png" />
+</div>
+</div>
+
+

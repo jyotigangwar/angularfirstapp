@@ -1,0 +1,51 @@
+<p>address works!</p>
+<form #address="ngForm" (submit)="address.valid && addAddress()">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input [(ngModel)]="user.name" minlength="5"  name="name" #uname="ngModel" 
+        required type="email" class="form-control">
+        <div style="color:red" *ngIf="uname.errors && address.submitted">
+            <div *ngIf="uname.errors['required']">Name is Required</div>
+            <div *ngIf="uname.errors['minlength']">Name must be of minimum 5 characters </div>
+            <div *ngIf="uname.errors['maxlength']">Name must be of maximum 20 characters </div>
+
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Address</label>
+        <textarea [(ngModel)]="user.address" minlength="5" name="address" #uaddress="ngModel" 
+        required type="text" class="form-control"></textarea>
+        <div style="color:red" *ngIf="uaddress.errors && address.submitted">
+            <div *ngIf="uaddress.errors['required']">Address is Required</div>
+            <div *ngIf="uaddress.errors['minlength']">Address must be of minimum 5 characters </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">State</label>
+        <input [(ngModel)]="user.state" minlength="5" name="state" #ustate="ngModel" 
+        required type="state" class="form-control">
+        <div style="color:red" *ngIf="ustate.errors && address.submitted">
+            <div *ngIf="ustate.errors['required']">State is Required</div>
+            <div *ngIf="ustate.errors['minlength']">State must be of minimum 5 characters </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">City</label>
+        <input [(ngModel)]="user.city" minlength="5" name="city" #ucity="ngModel" 
+        required type="text" class="form-control">
+        <div style="color:red" *ngIf="ucity.errors && address.submitted">
+            <div *ngIf="ucity.errors['required']">City is Required</div>
+            <div *ngIf="ucity.errors['minlength']">City must be of minimum 5 characters </div>
+        </div>        
+    </div>    
+    <div class="mb-3">
+        <label class="form-label">Pincode</label>
+        <input [(ngModel)]="user.pincode" minlength="5" name="city" #upincode="ngModel" 
+        required type="number" class="form-control">
+        <div style="color:red" *ngIf="upincode.errors && address.submitted">
+            <div *ngIf="upincode.errors['required']">Pincode is Required</div>
+            <div *ngIf="upincode.errors['minlength']">Pincode must be of minimum 5 characters </div>
+        </div>        
+    </div>               
+    <button class="btn btn-primary">Save Address</button>
+    </form>

@@ -1,0 +1,104 @@
+<div>
+  <!-- the position of the parent container must be set to relative -->
+  <!-- It is really important to set loaderId for non-master loader -->
+  <ngx-ui-loader [loaderId]="'loader-01'"></ngx-ui-loader>
+</div>
+<div class="col-md-12">
+  <div>
+    <!-- the position of the parent container must be set to relative -->
+    <!-- It is really important to set loaderId for non-master loader -->
+    <ngx-ui-loader [loaderId]="'loader-01'"></ngx-ui-loader>
+  </div>
+<div class="row rounded border row"  style="width:70%; margin:auto; padding: 20px 20px 20px 20px;">
+
+    
+    <div *ngIf="cartMessage" class="col-md-12 alert alert-success" role="alert">
+      {{cartMessage}}
+    
+    </div>    
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Weight</th>
+          <th scope="col"></th>
+          <!-- <th scope="col">create Date</th>
+          <th scope="col">id</th> -->
+          <!-- <th scope="col"></th> -->
+          <th scope="col">Quantity</th>
+
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let each of cartItemsDb">
+          <!-- <th scope="row">{{each.cakeid}}</th> -->
+          <td [routerLink]="['/cake',each.cakeid]">{{each.name}}</td>
+          <td>{{each.price}}</td>
+          <td>{{each.weight}}</td>
+          <!-- <td>{{each.image}}</td> -->
+          <!-- <td>{{each.createdat}}</td> -->
+          <!-- <td>{{each._id}}</td> -->
+          <td><button class="btn btn-primary" (click)="decreaseByOne(each.cakeid)">-</button></td>
+          <td>{{each.quantity}}</td>
+          <td><button class="btn btn-primary" (click)="increaseByOne(each.cakeid,each.name,each.price,each.weight)">+</button></td>
+          <td><button class="btn btn-primary" (click)="removeCakeFromCart(each.cakeid)">X</button></td>
+        </tr>
+        <tr>
+          <td colspan="7">Total Products : {{totalElements}}</td>
+        </tr>
+        <tr>
+          <td  colspan="7">Total Price : {{sum.price}}</td>
+        </tr>        
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col-md-6">
+          <button name="clearcart" (click)="clearCart()" class="btn btn-secondary">Clear Cart</button>
+      </div>
+          <div class="col-md-6">
+          <button name="checkout" class="btn btn-primary" routerLink="/cartcheckout" >Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- {{ cartItems }}
+{{ flowerItems }}
+<table class="table">
+  <tr>
+    <td>Name</td>
+    <td>Image</td>
+    <td>Price</td>
+    <td>Quantity</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <app-cartitem [cartItems]="cartItems1"></app-cartitem>
+  </tr>
+  <tr>
+    <app-cartitem [cartItems]="cartItems2"></app-cartitem>
+  </tr>
+  <tr>
+    <app-cartitem [cartItems]="cartItems3"></app-cartitem>
+  </tr>
+  <tr>
+    <app-cartitem [cartItems]="cartItems4"></app-cartitem>
+  </tr>
+  <!-- <tr
+    *ngFor="let x of cartitemsarray; let i = index"
+    app-cartitem
+    [cartItems]="x"
+  ></tr> -->
+
+  <!-- <tr *ngFor="let c of cartitemsarray | keyvalue">
+    <td *ngFor="let item of c">{{ item.key }}: {{ item.value }}</td>
+  </tr> -->
+<!-- </table>
+<div *ngFor="let item of cartItems2 | keyvalue">
+  {{ item.key }} - {{ item.value }}
+</div>
+<div *ngFor="let item of { b: 1, a: 1 } | keyvalue">
+  {{ item.key }} - {{ item.value }}
+</div> -->

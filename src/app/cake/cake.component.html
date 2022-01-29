@@ -1,0 +1,14 @@
+<div class="card border rounded">
+  <img [routerLink]="['/cake',cake.cakeid]" class="card-img-top" [src]="cake.image" height="150px" alt="Card image ALt" />
+  <div class="card-body">
+    <h5 class="card-title">{{ cake.name }}</h5>
+    <p class="card-text">{{ cake.price }}</p>
+    <!-- <p class="card-text">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </p> -->
+    <label *ngIf="cake.category" class="alert alert-success">{{
+      cake.category
+    }}</label>
+    <br />
+  </div>
+</div>

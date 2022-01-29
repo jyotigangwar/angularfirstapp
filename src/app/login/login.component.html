@@ -1,0 +1,36 @@
+<div style="width:50%; margin:auto;margin-top:20px; border:1px solid blue" >
+<div class="card-header"><h1>Login here</h1></div>
+  <div class="row">
+      <div class="col" *ngIf="errorMsg" style="color:red; text-muted;">
+        {{errorMsg}}
+      </div>
+  </div>
+  <div class="row">
+      <div  class="col" *ngIf="successMsg"  style="color:green; text-muted;">
+        {{successMsg}}
+      </div>
+  </div>
+  <div class="form-group">
+    <input
+    [(ngModel)] = "email"
+    placeholder="Email"
+    type="text"
+    class="form-control login-margin"
+    name="email"
+    style="margin: 10px 0px 10px 0px;
+    padding: 10px 10px 10px 10px"
+  />
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <input type="password" 
+    class="form-control login-margin"
+    name="password" [(ngModel)]="password" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <div routerLink="/signup" class="form-check-label" >Not register? Sign up</div>
+    <div routerLink="/forgot" class="form-check-label">Forgot Password?</div>
+  </div>  
+  <button (click)="login()" class="btn btn-primary">Login</button>
+
+</div>

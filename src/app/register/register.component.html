@@ -1,0 +1,35 @@
+<h1>Register Form</h1>
+<div class="row text-centre">
+  <div style="color:red">{{successMsg}}</div>
+  <form (submit)="signup()" [formGroup]="signupForm">
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control"   formControlName="email" name="email">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div style="color: red;" *ngIf="submitted && signupForm.controls['email']['errors']" >
+      <label *ngIf="signupForm.controls['email']['errors']['required']">Email is required</label>
+      <label *ngIf="signupForm.controls['email']['errors']['email']">Email is Invalid</label>
+      </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Name</label>
+    <input type="text" class="form-control" formControlName="name" name="name">
+    <div style="color: red;" *ngIf="submitted && signupForm.controls['name']['errors']" >
+      <label *ngIf="signupForm.controls['name']['errors']['required']">Name is required</label>
+      <label *ngIf="signupForm.controls['name']['errors']['minlength']">Must be of 4 characters</label>
+      </div>    
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Password</label>
+    <input type="password" class="form-control" formControlName="password" name="password">
+    <div style="color: red;" *ngIf="submitted && signupForm.controls['password']['errors']" >
+      <label *ngIf="signupForm.controls['password']['errors']['required']">Password is required</label>
+      <label *ngIf="signupForm.controls['password']['errors']['minlength']">Must be of 4 characters</label>
+      </div>        
+  </div>
+  <div class="mb-3">
+      <button class="btn btn-primary" type="submit">Register here</button>
+      <!-- <button (click) = "registerUser()" class="btn btn-primary" type="button">Register here</button> -->
+  </div>
+</form>
+</div>

@@ -1,0 +1,26 @@
+<!-- <p>cartcheckout works!</p>
+    <div class="row">
+        <div class="col-md-3">
+            <div routerLinkActive="activeclass" routerLink="summary">Summary</div>
+            <div routerLinkActive="activeclass" routerLink="payment">Payment</div>
+            <div routerLinkActive="activeclass" routerLink="address">Address</div>
+        </div>
+        <div class="col-md-9"><router-outlet></router-outlet></div>
+    </div> -->
+
+<div class="row border rounded form-group" style="margin-top: 20px;">
+    <div class="col-3">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link " routerLinkActive="active" id="v-pills-address-tab" data-toggle="pill" routerLink="address" role="tab" aria-controls="v-pills-address" aria-selected="true">Address</a>
+        <a class="nav-link " routerLinkActive="active" id="v-pills-summary-tab" data-toggle="pill" routerLink="summary" role="tab" aria-controls="v-pills-summary" aria-selected="false">Summary</a>
+        <a class="nav-link " routerLinkActive="active" id="v-pills-payment-tab" data-toggle="pill" routerLink="payment" role="tab" aria-controls="v-pills-payment" aria-selected="false">Payment</a>
+        <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+      -->
+      </div>
+    </div>
+    <div class="col-9">
+            <router-outlet></router-outlet>
+    </div>
+  </div>

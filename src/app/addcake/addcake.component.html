@@ -1,0 +1,117 @@
+<div class="container border gt-10 rounded mt-60 p-3" style="background-color: rgb(236, 243, 250); margin-top: 10px;margin:auto; width:50%; margin-top: 50px; ">
+    <div class="addcakeclass">
+      <div class="row">
+        <div class="col" *ngIf="errorMsg" style="color:red; text-muted;">
+          {{errorMsg}}
+        </div>
+    </div>
+    <div class="row">
+        <div  class="col" *ngIf="successMsg"  style="color:green; text-muted;">
+          {{successMsg}}
+        </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+          <h1>Add Cake</h1>
+      </div>
+    </div>
+    <div class="row form-group p-2">
+      <div class="col">
+        <input type="text" name="name" [(ngModel)] = "cake.name" class="form-control" placeholder="Cake Name" />
+      </div>
+    </div>
+    <div class="row form-group p-2">
+      <div class="col">
+        <select  name="type" [(ngModel)] = "cake.type" class="form-control">
+            <option value="" selected>Select Cake Flavour</option>
+            <option value="Chocolate">Chocolate</option>
+            <option value="Vanilla">Vanilla</option>
+            <option value="Black Forest">Black forest</option>
+            <option value="Strawberry">Strawberry</option>
+            <option value="Pineapple">Pineapple</option>
+            <option value="Butter Scotch">Butter Scotch</option>
+      </select>
+      </div>
+    </div>    
+    <div class="row form-group p-2">
+      <div class="col">
+        <input type="text" name="price" [(ngModel)] = "cake.price" class="form-control"  placeholder="Price" />
+      </div>
+    </div>
+    <div class="row form-group p-2">
+      <div class="col">
+        <textarea type="text" name="ingredients" rows="5" [(ngModel)] = "cake.ingredients" class="form-control" placeholder="Ingredients"></textarea>
+        Enter the comma seprated values
+      </div>
+    </div>
+    <div class="row form-group p-2">
+      <div class="col">
+        <textarea type="text" rows="5" name="description" [(ngModel)] = "cake.description" class="form-control" placeholder="Description"></textarea>
+      </div>
+    </div>
+    <div class="row form-group p-2">
+      <div class="col"><input type="checkbox" value="true" name="eggless"  [(ngModel)] = "cake.eggless" > Eggless
+        <!-- <input type="text" name="eggless" [(ngModel)] = "eggless" class="form-control" placeholder="Eggless" /> -->
+      </div>
+    </div>
+    <div class="row form-group p-2">
+      <div class="col">
+        <input type="text" name="weight" [(ngModel)] = "cake.weight" class="form-control" placeholder="Weight" />
+      </div>
+    </div>
+    <div class="row">
+        <input type="file" name="image" (change)="upload($event)">Upload Image
+        <input type="text" [(ngModel)] = "cake.image" name="image" />
+      </div>
+    </div>    
+    <div class="row form-group p-2">
+      <div class="col">
+        <input type="text" name="cake" class="form-control" placeholder="Cake Name" />
+        <button (click)="addCakeByApi()" name="addcake" class="btn btn-primary">Add Cake</button>
+      </div>
+    </div>               
+</div>
+<!-- 
+<input type="file" name="upload">Upload file
+<table>
+  <tr>
+    <td>cake name</td>
+    <td><input type="text" name="name" [(ngModel)]="cake.name" /></td>
+  </tr>
+  <tr>
+    <td>cake price</td>
+    <td><input type="text" name="price" [(ngModel)]="cake.price" /></td>
+  </tr>
+  <tr>
+    <td>cake image</td>
+    <td><input type="text" name="image" [(ngModel)]="cake.image" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <button name="addCake" (click)="addCake()">Add Cake</button>
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Price</td>
+    <td>Name</td>
+  </tr>
+  <tr *ngFor="let x of cakes; let i = index">
+    <td>{{ +i }}</td>
+    <td>{{ x.name }}</td>
+    <td>{{ x.price }}</td>
+    <td>{{ x.quantity }}</td>
+    <td>{{ x.image }}</td>
+    <td>
+      <button
+        type="button"
+        (click)="removeCake(i)"
+        name="RemoveButton"
+        class="btn-class"
+      ></button>
+    </td>
+  </tr>
+</table> -->
